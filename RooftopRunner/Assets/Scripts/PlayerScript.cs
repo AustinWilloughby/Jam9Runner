@@ -78,12 +78,17 @@ public class PlayerScript : MonoBehaviour {
     {
         //Debug.Log();
 
+        //If player hits a pickup destroy it
+        if(other.tag == "Pickup")
+        {
+            Destroy(other.gameObject);
+        }
+
         string name = other.GetComponent<SpriteRenderer>().sprite.name;
 
-        if(name.Equals("Rock") || name.Equals("Tree Ugly") || name.Equals("Water Block"))
+        if (name.Equals("Rock") || name.Equals("Tree Ugly") || name.Equals("Water Block") || other.tag == "Dead" || other.tag == "FinishLine")
         {
             endMenuScript getendMenu = GameObject.Find("endMenu").GetComponent<endMenuScript>();
-
 
             getendMenu.menu.enabled = !getendMenu.menu.enabled;
 
