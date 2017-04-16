@@ -18,9 +18,10 @@ public class PlayerScript : MonoBehaviour {
     protected float startX;
     protected float destinationX;
 
-  
-	// Use this for initialization
-	void Start () {
+
+
+    // Use this for initialization
+    void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         startX = transform.position.x;
         destinationX = startX;
@@ -28,7 +29,13 @@ public class PlayerScript : MonoBehaviour {
         moveLaneSpeed *= laneWidth;
 
         Debug.Log(GetComponent<SpriteRenderer>().sprite.name);
+
+       
+
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -75,7 +82,13 @@ public class PlayerScript : MonoBehaviour {
 
         if(name.Equals("Rock") || name.Equals("Tree Ugly") || name.Equals("Water Block"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            endMenuScript getendMenu = GameObject.Find("endMenu").GetComponent<endMenuScript>();
+
+
+            getendMenu.menu.enabled = !getendMenu.menu.enabled;
+
+            Time.timeScale = 0;
+            //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
