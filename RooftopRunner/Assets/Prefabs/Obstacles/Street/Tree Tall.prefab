@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61168946951212838}
   m_Layer: 0
   m_Name: Tree Tall
-  m_TagString: Untagged
+  m_TagString: Dead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
