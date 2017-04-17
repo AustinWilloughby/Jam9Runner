@@ -20,12 +20,11 @@ public class WinningScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        endMenuScript getendMenu = GameObject.Find("endMenu").GetComponent<endMenuScript>();
+        //endMenuScript getendMenu = GameObject.Find("endMenu").GetComponent<endMenuScript>();
 
+        //getendMenu.menu.enabled = !getendMenu.menu.enabled;
 
-        getendMenu.menu.enabled = !getendMenu.menu.enabled;
-
-        Time.timeScale = 0;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Time.timeScale = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
