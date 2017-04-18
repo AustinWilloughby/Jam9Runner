@@ -18,6 +18,10 @@ public class PlayerScript : MonoBehaviour {
     protected float startX;
     protected float destinationX;
 
+    public AudioClip pickup;
+    public AudioClip hurt;
+    public AudioSource source;
+
 
 
     // Use this for initialization
@@ -81,7 +85,9 @@ public class PlayerScript : MonoBehaviour {
         //If player hits a pickup destroy it
         if(other.tag == "Pickup")
         {
+            source.PlayOneShot(pickup);
             Destroy(other.gameObject);
+
         }
 
         string name = other.GetComponent<SpriteRenderer>().sprite.name;
@@ -91,6 +97,8 @@ public class PlayerScript : MonoBehaviour {
             endMenuScript getendMenu = GameObject.Find("endMenu").GetComponent<endMenuScript>();
 
             getendMenu.menu.enabled = !getendMenu.menu.enabled;
+
+            source.PlayOneShot(hurt);
 
             Time.timeScale = 0;
             //  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
